@@ -32,3 +32,5 @@
 ---
 
 **Tutorial:** [TypeORM Relations Tutorial - FULL details! - Marius Espejo](https://www.youtube.com/watch?v=rKgZLVgdvAY&list=PLlaDAvA2MhR2jb8zavu6I-w1BA878aHcB&index=3)
+
+**TypeORM Documentation:** [typeorm.io](https://typeorm.io/)
