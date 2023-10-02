@@ -66,7 +66,8 @@ export class AppService {
     });
   }
 
-  // Use this approach for complex queries
+  // Tip: If you're good in SQL you wont have problems mapping SQL queries to js api
+  // Use this approach for complex queries (group by, order by, etc)
   async getEmployeeUsingQueryBuilder(id: number): Promise<any> {
     return this.employeeRepository
       .createQueryBuilder('employee')
@@ -75,5 +76,9 @@ export class AppService {
       .leftJoinAndSelect('employee.tasks', 'tasks')
       .where('employee.id = :id', { id })
       .getOne();
+  }
+
+  async deleteEmployee(id: number) {
+    return this.employeeRepository.delete(id);
   }
 }

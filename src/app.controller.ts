@@ -1,4 +1,4 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Delete, Get, Param } from '@nestjs/common';
 import { AppService } from './app.service';
 
 @Controller()
@@ -16,8 +16,13 @@ export class AppController {
     return this.appService.getEmployeeById(+id);
   }
 
-  @Get('/query-builder/:id')
+  @Get('query-builder/:id')
   async getEmployeeUsingQueryBuilder(@Param('id') id: string) {
     return this.appService.getEmployeeUsingQueryBuilder(+id);
+  }
+
+  @Delete(':id')
+  async deleteEmployee(@Param('id') id: string) {
+    return this.appService.deleteEmployee(+id);
   }
 }
