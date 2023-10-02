@@ -65,4 +65,15 @@ export class AppService {
       ],
     });
   }
+
+  // Use this approach for complex queries
+  async getEmployeeUsingQueryBuilder(id: number): Promise<any> {
+    return this.employeeRepository
+      .createQueryBuilder('employee')
+      .leftJoinAndSelect('employee.directReports', 'directReports')
+      .leftJoinAndSelect('employee.meetings', 'meetings')
+      .leftJoinAndSelect('employee.tasks', 'tasks')
+      .where('employee.id = :id', { id })
+      .getOne();
+  }
 }

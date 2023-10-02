@@ -15,4 +15,9 @@ export class AppController {
   async getEmployee(@Param('id') id: string) {
     return this.appService.getEmployeeById(+id);
   }
+
+  @Get('/query-builder/:id')
+  async getEmployeeUsingQueryBuilder(@Param('id') id: string) {
+    return this.appService.getEmployeeUsingQueryBuilder(+id);
+  }
 }
