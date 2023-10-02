@@ -52,4 +52,17 @@ export class AppService {
 
     await this.employeeRepository.save(manager);
   }
+
+  async getEmployeeById(id: number): Promise<Employee> {
+    return this.employeeRepository.findOne({
+      where: { id },
+      relations: [
+        'manager',
+        'directReports',
+        'tasks',
+        'contactInfo',
+        'meetings',
+      ],
+    });
+  }
 }
